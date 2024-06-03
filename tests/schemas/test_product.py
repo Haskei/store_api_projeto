@@ -13,7 +13,7 @@ def test_schemas_return_success():
 
 
 def test_schemas_return_raise():
-    data = {"name": "Iphone 14 Pro Max", "quantity": 10, "price": 8.500}
+    data = {"Name": "Product A", "Quantity": 10, "Status": "discount"}
 
     with pytest.raises(ValidationError) as err:
         ProductIn.model_validate(data)
@@ -22,6 +22,6 @@ def test_schemas_return_raise():
         "type": "missing",
         "loc": ("status",),
         "msg": "Field required",
-        "input": {"name": "Iphone 14 Pro Max", "quantity": 10, "price": 8.5},
+        "input": {"Name": "Product A", "Quantity": 10, "Status": "discount"},
         "url": "https://errors.pydantic.dev/2.5/v/missing",
     }
